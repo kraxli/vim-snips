@@ -1,0 +1,22 @@
+# important source: https://castel.dev/post/lecture-notes-1/
+
+snippet sign "Signature"
+Yours sincerely,
+
+David Scherrer
+endsnippet
+
+snippet today "Date"
+`date +%F`
+endsnippet
+
+# You can also use Python in­side a `!p ... ` block
+snippet box "Box"
+`!p snip.rv = '┌' + '─' * (len(t[1]) + 2) + '┐'`
+│ $1 │
+`!p snip.rv = '└' + '─' * (len(t[1]) + 2) + '┘'`
+$0
+endsnippet
+# These Python code blocks will be replaced by the value of the variable snip.rv.
+# In­side these blocks, you have access to the current state of the snippet,
+# e.g. t[1] contains the first tab stop, fn the current file­name, …
