@@ -1,0 +1,24 @@
+
+snippet template "Basic template" b
+---
+title: ${1:"Title"}
+author: ${2: David Scherrer}
+date: $3
+header-includes:
+	- \usepackage{array}
+	- \usepackage[utf8]{inputenc}
+	- \usepackage[t1]{fontenc}
+	- \usepackage{textcomp}
+	- \usepackage[german]{babel}
+	- \usepackage{amsmath, amssymb}
+	- \documentclass[a4paper]{article}
+---
+endsnippet
+
+snippet md "Math display" wA
+$$
+${1:${VISUAL}}
+$$ $0
+endsnippet
+
+
