@@ -1,0 +1,2 @@
+
+UltiSnipsAddFiletypes tex.writer
