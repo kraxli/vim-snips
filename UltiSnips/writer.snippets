@@ -1,10 +1,41 @@
-# source: https://castel.dev/post/lecture-notes-1/
+global !p
+import sys
+sys.path.append('../../pythonx')
+from snippet_helpers import *
+endglobal
+
+##########
+#  text  #
+##########
+
+# [${1:${VISUAL:Text}}](${3:///${2:screenshot-directory/${4}.${5:jpg}}})$0
+
+# snippet linkScreenshot "screenshot link"
+# [${1:screen shot}](${2:`!p
+# import sys
+# sys.path.append('../../pythonx')
+# from snippet_helpers import *
+# snip.rv = file_most_recent(vim.eval('g:dir_screenshots'))`})
+# endsnippet
+
+snippet linkScreenshot "screenshot link"
+[${1:screen shot}](${2:`!p snip.rv = vim.eval('g:dir_screenshots')`${3:`!p snip.rv = os.sep + file_most_recent(vim.eval('g:dir_screenshots'))`}})
+endsnippet
+
+snippet dirScreenshot "get screenshot directory"
+`!p snip.rv = vim.eval('g:dir_screenshots') + os.sep`
+endsnippet
+# [${1:shot description}](${2:`!p snip.rv = file_most_recent(vim.eval('g:dir_screenshots'))`})
+
+
+# ┌────────────────────────────────────────────────────────────────────┐
+# │ the following is based on https://castel.dev/post/lecture-notes-1/ │
+# └────────────────────────────────────────────────────────────────────┘
 
 # project specfic snippets:
 # set rtp+=~/current_project
 # where current_project is a symlink to my currently activated course/project.
 # In that folder, I have a file ~/current_project/UltiSnips/tex.snippets in which I include course/project specific snippets
-
 
 # ----- Context -----:
 # One thing to consider when writing these snippets is, ‘will these snip­pets col­lide with usual text?’
@@ -14,6 +45,7 @@
 
 global !p
 texMathZones = ['texMathZone'+x for x in ['A', 'AS', 'B', 'BS', 'C', 'CS', 'D', 'DS', 'E', 'ES', 'F', 'FS', 'G', 'GS', 'H', 'HS', 'I', 'IS', 'J', 'JS', 'K', 'KS', 'L', 'LS', 'DS', 'V', 'W', 'X', 'Y', 'Z']]
+texMathZones = texMathZones + ['textSnipTEX']
 
 texIgnoreMathZones = ['texMathText']
 
@@ -46,8 +78,9 @@ endsnippet
 
 snippet md "Math display" wA
 $$
-${1:${VISUAL}}
-.$$ $0
+	${1:${VISUAL}}
+$$
+$0
 endsnippet
 
 # snippet md "Math display" wA
@@ -56,10 +89,20 @@ endsnippet
 # .\] $0
 # endsnippet
 
+snippet $$ "Math display" wA
+$$
+	${1:${VISUAL}}
+$$
+$0
+endsnippet
 
 # ----- Fractions -----:
-context "math()"
 snippet // "Fraction" iA
+\\frac{$1}{$2}$0
+endsnippet
+
+context "math()"
+snippet frac "Fraction" wA
 \\frac{$1}{$2}$0
 endsnippet
 
@@ -557,7 +600,6 @@ endsnippet
 snippet cvec "column vector" iA
 \begin{pmatrix} ${1:x}_${2:1}\\\\ \vdots\\\\ $1_${2:n} \end{pmatrix}
 endsnippet
-
 
 # Postfix snippets:
 # Some other snippets I find worth sharing are post­fix snippets. Examples of such snippets are

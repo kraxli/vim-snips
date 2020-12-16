@@ -3,7 +3,7 @@
 snippet sign "Signature"
 Yours sincerely,
 
-David Scherrer
+`!p snip.rv = vim.eval("g:signature")`
 endsnippet
 
 snippet today "Date"
@@ -11,12 +11,13 @@ snippet today "Date"
 endsnippet
 
 # You can also use Python in­side a `!p ... ` block
-snippet box "Box"
-`!p snip.rv = '┌' + '─' * (len(t[1]) + 2) + '┐'`
-│ $1 │
-`!p snip.rv = '└' + '─' * (len(t[1]) + 2) + '┘'`
-$0
-endsnippet
+# snippet box "Box"
+# `!p snip.rv = '┌' + '─' * (len(t[1]) + 2) + '┐'`
+# │ $1 │
+# `!p snip.rv = '└' + '─' * (len(t[1]) + 2) + '┘'`
+# $0
+# endsnippet
+
 # These Python code blocks will be replaced by the value of the variable snip.rv.
 # In­side these blocks, you have access to the current state of the snippet,
 # e.g. t[1] contains the first tab stop, fn the current file­name, …
