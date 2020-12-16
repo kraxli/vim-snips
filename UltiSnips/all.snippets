@@ -35,6 +35,11 @@ snippet today "Date"
 `date +%F`
 endsnippet
 
+# snippet today
+# Today is `#!/usr/bin/perl
+# @a = localtime(); print $a[3] . '.' . $a[4] . '.' . ($a[5]+1900);`.
+# endsnippet
+
 snippet dt "include due to date"
 @20${3:`!v strftime("%y")`}-${2:`!v strftime("%m")`}-${1:`!v strftime("%d")`}:
 endsnippet
@@ -69,8 +74,6 @@ endsnippet
 # snippet done "include due to date"
 # [@Done: ${3:`!v strftime("%Y")`}-${2:`!v strftime("%m")`}-${1:`!v strftime("%d")`}]
 # endsnippet
-
-
 
 # vim:ft=snippets:
 # vim:foldmethod=marker:foldlevel=0

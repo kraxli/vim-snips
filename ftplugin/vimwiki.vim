@@ -1,4 +1,4 @@
 
-UltiSnipsAddFiletypes vimwiki.markdown
-UltiSnipsAddFiletypes vimwiki.writer
+" UltiSnipsAddFiletypes vimwiki.markdown
+" UltiSnipsAddFiletypes vimwiki.writer
 
