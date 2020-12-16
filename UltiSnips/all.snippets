@@ -6,10 +6,6 @@ Yours sincerely,
 `!p snip.rv = vim.eval("g:signature")`
 endsnippet
 
-snippet today "Date"
-`date +%F`
-endsnippet
-
 # You can also use Python in­side a `!p ... ` block
 # snippet box "Box"
 # `!p snip.rv = '┌' + '─' * (len(t[1]) + 2) + '┐'`
@@ -21,3 +17,60 @@ endsnippet
 # These Python code blocks will be replaced by the value of the variable snip.rv.
 # In­side these blocks, you have access to the current state of the snippet,
 # e.g. t[1] contains the first tab stop, fn the current file­name, …
+
+######################
+#  vimwiki snipptes  #
+######################
+
+# #  snippet to include path to wiki file  #
+# snippet wikipath "include path to wiki-file"
+# g:vimwiki_list['path'] \${1:filename}.wiki
+# endsnippet
+
+###################
+#  DATE SNIPPETS  #
+###################
+
+snippet today "Date"
+`date +%F`
+endsnippet
+
+snippet dt "include due to date"
+@20${3:`!v strftime("%y")`}-${2:`!v strftime("%m")`}-${1:`!v strftime("%d")`}:
+endsnippet
+# or simply [from-to]
+# [DD: ${3:`!v strftime("%Y")`}-${2:`!v strftime("%m")`}-${1:`!v strftime("%d")`}]
+
+snippet dr "include action time"
+@20${3:`!v strftime("%y")`}-${2:`!v strftime("%m")`}-${1:`!v strftime("%d")`} - 20${6:`!v strftime("%y")`}-${5:`!v strftime("%m")`}-${4:`!v strftime("%d")`}:
+endsnippet
+
+snippet DueTo "include due to date"
+[Date to: 20${3:`!v strftime("%y:")`}-${2:`!v strftime("%m")`}-${1:`!v strftime("%d")`}]
+endsnippet
+
+snippet DueDate "include due to date"
+[DueDate: 20${3:`!v strftime("%y")`}-${2:`!v strftime("%m")`}-${1:`!v strftime("%d")`}]
+endsnippet
+
+snippet dd "include due to date"
+[DD: 20${3:`!v strftime("%y")`}-${2:`!v strftime("%m")`}-${1:`!v strftime("%d")`}]
+endsnippet
+# [DD: ${3:`!v strftime("%Y")`}-${2:`!v strftime("%m")`}-${1:`!v strftime("%d")`}]
+
+snippet date
+20${3:`!v strftime("%y")`}-${2:`!v strftime("%m")`}-${1:`!v strftime("%d")`}
+endsnippet
+
+snippet done "include done date"
+<@DONE `!v strftime("%Y-%m-%d")`>
+endsnippet
+
+# snippet done "include due to date"
+# [@Done: ${3:`!v strftime("%Y")`}-${2:`!v strftime("%m")`}-${1:`!v strftime("%d")`}]
+# endsnippet
+
+
+
+# vim:ft=snippets:
+# vim:foldmethod=marker:foldlevel=0
