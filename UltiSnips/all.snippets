@@ -7,12 +7,12 @@ Yours sincerely,
 endsnippet
 
 # You can also use Python in­side a `!p ... ` block
-# snippet box "Box"
-# `!p snip.rv = '┌' + '─' * (len(t[1]) + 2) + '┐'`
-# │ $1 │
-# `!p snip.rv = '└' + '─' * (len(t[1]) + 2) + '┘'`
-# $0
-# endsnippet
+snippet boxN "Box"
+`!p snip.rv = '┌' + '─' * (len(t[1]) + 2) + '┐'`
+│ $1 │
+`!p snip.rv = '└' + '─' * (len(t[1]) + 2) + '┘'`
+$0
+endsnippet
 
 # These Python code blocks will be replaced by the value of the variable snip.rv.
 # In­side these blocks, you have access to the current state of the snippet,

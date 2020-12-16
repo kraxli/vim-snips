@@ -65,7 +65,7 @@ endglobal
 # ----- end context -----
 
 
-snippet mi "Math inline" wA
+snippet $i "Math inline" wA
 $${1}$`!p
 if t[2] and t[2][0] not in [',', '.', '?', '-', ' ']:
 	snip.rv = ' '
@@ -88,6 +88,14 @@ $$
 $$
 $0
 endsnippet
+
+snippet $d "Math display" wA
+$$
+	${1:${VISUAL}}
+$$
+$0
+endsnippet
+
 
 # ----- Fractions -----:
 snippet // "Fraction" iA
