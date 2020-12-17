@@ -18,11 +18,15 @@ endglobal
 # snip.rv = file_most_recent(vim.eval('g:dir_screenshots'))`})
 # endsnippet
 
-snippet linkScreenshot "screenshot link"
-[${1:screen shot}](${2:`!p snip.rv = vim.eval('g:dir_screenshots')`${3:`!p snip.rv = os.sep + file_most_recent(vim.eval('g:dir_screenshots'))`}})
+snippet imgShot "screenshot link" wA
+![${1:screen shot}](${2:`!p snip.rv = vim.eval('g:dir_screenshots')`${3:`!p snip.rv = os.sep + file_most_recent(vim.eval('g:dir_screenshots'))`}})
 endsnippet
 
-snippet dirScreenshot "get screenshot directory"
+# snippet linkShot "screenshot link" wA
+# [${1:screen shot}](${2:`!p snip.rv = vim.eval('g:dir_screenshots')`${3:`!p snip.rv = os.sep + file_most_recent(vim.eval('g:dir_screenshots'))`}})
+# endsnippet
+
+snippet dirShot "get screenshot directory" wA
 `!p snip.rv = vim.eval('g:dir_screenshots') + os.sep`
 endsnippet
 # [${1:shot description}](${2:`!p snip.rv = file_most_recent(vim.eval('g:dir_screenshots'))`})
@@ -187,11 +191,11 @@ snip.rv = subprocess.check_output(['wolframscript', '-code', code])
 endsnippet
 # ----- end sympy / mathematica -----
 
-snippet => "implies" Ai
+snippet => "implies" i
 \implies
 endsnippet
 
-snippet =< "implied by" Ai
+snippet =< "implied by" i
 \impliedby
 endsnippet
 
