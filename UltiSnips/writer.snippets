@@ -1,36 +1,3 @@
-global !p
-import sys
-sys.path.append('../../pythonx')
-from snippet_helpers import *
-endglobal
-
-##########
-#  text  #
-##########
-
-# [${1:${VISUAL:Text}}](${3:///${2:screenshot-directory/${4}.${5:jpg}}})$0
-
-# snippet linkScreenshot "screenshot link"
-# [${1:screen shot}](${2:`!p
-# import sys
-# sys.path.append('../../pythonx')
-# from snippet_helpers import *
-# snip.rv = file_most_recent(vim.eval('g:dir_screenshots'))`})
-# endsnippet
-
-snippet imgShot "screenshot link" wA
-![${1:screen shot}](${2:`!p snip.rv = vim.eval('g:dir_screenshots')`${3:`!p snip.rv = os.sep + file_most_recent(vim.eval('g:dir_screenshots'))`}})
-endsnippet
-
-# snippet linkShot "screenshot link" wA
-# [${1:screen shot}](${2:`!p snip.rv = vim.eval('g:dir_screenshots')`${3:`!p snip.rv = os.sep + file_most_recent(vim.eval('g:dir_screenshots'))`}})
-# endsnippet
-
-snippet dirShot "get screenshot directory" wA
-`!p snip.rv = vim.eval('g:dir_screenshots') + os.sep`
-endsnippet
-# [${1:shot description}](${2:`!p snip.rv = file_most_recent(vim.eval('g:dir_screenshots'))`})
-
 
 # ┌────────────────────────────────────────────────────────────────────┐
 # │ the following is based on https://castel.dev/post/lecture-notes-1/ │
@@ -41,13 +8,17 @@ endsnippet
 # where current_project is a symlink to my currently activated course/project.
 # In that folder, I have a file ~/current_project/UltiSnips/tex.snippets in which I include course/project specific snippets
 
+global !p
+import sys
+sys.path.append('../../pythonx')
+from snippet_helpers import *
+
 # ----- Context -----:
 # One thing to consider when writing these snippets is, ‘will these snip­pets col­lide with usual text?’
 # For exmple while I’m typing the word disregard, the sr would expand to ^2, giving me di^2egard.
 # The solution to this problem is adding a context to snippets. Using the syntaxhigh­lighting of Vim,
 # it can be determined whether or not UltiSnips should expand the snippet depending if you’re in math or text. I came up with the following:
 
-global !p
 texMathZones = ['texMathZone'+x for x in ['A', 'AS', 'B', 'BS', 'C', 'CS', 'D', 'DS', 'E', 'ES', 'F', 'FS', 'G', 'GS', 'H', 'HS', 'I', 'IS', 'J', 'JS', 'K', 'KS', 'L', 'LS', 'DS', 'V', 'W', 'X', 'Y', 'Z']]
 texMathZones = texMathZones + ['textSnipTEX']
 
@@ -65,9 +36,22 @@ def math():
 		return first != ignore
 	except StopIteration:
 		return False
-endglobal
 # ----- end context -----
+endglobal
 
+snippet imgShot "screenshot link" wA
+![${1:screen shot}](${2:`!p snip.rv = vim.eval('g:dir_screenshots')`${3:`!p snip.rv = os.sep + file_most_recent(vim.eval('g:dir_screenshots'))`}})
+endsnippet
+
+# snippet linkShot "screenshot link" wA
+# [${1:screen shot}](${2:`!p snip.rv = vim.eval('g:dir_screenshots')`${3:`!p snip.rv = os.sep + file_most_recent(vim.eval('g:dir_screenshots'))`}})
+# endsnippet
+
+snippet dirShot "get screenshot directory"
+`!p snip.rv = vim.eval('g:dir_screenshots') + os.sep`$0
+endsnippet
+# [${1:shot description}](${2:`!p snip.rv = file_most_recent(vim.eval('g:dir_screenshots'))`})
+# ${1:${VISUAL}}
 
 snippet $i "Math inline" wA
 $${1}$`!p
@@ -191,11 +175,11 @@ snip.rv = subprocess.check_output(['wolframscript', '-code', code])
 endsnippet
 # ----- end sympy / mathematica -----
 
-snippet => "implies" i
+snippet => "implies" w
 \implies
 endsnippet
 
-snippet =< "implied by" i
+snippet =< "implied by" w
 \impliedby
 endsnippet
 
