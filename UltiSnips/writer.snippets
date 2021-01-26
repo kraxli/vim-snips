@@ -53,6 +53,17 @@ endsnippet
 # [${1:shot description}](${2:`!p snip.rv = file_most_recent(vim.eval('g:dir_screenshots'))`})
 # ${1:${VISUAL}}
 
+
+snippet case
+case ${1:word} in
+    ${2:pattern} ) $0;;
+esac
+endsnippet
+
+##########
+#  MATH  #
+##########
+
 snippet $i "Math inline" wA
 $${1}$`!p
 if t[2] and t[2][0] not in [',', '.', '?', '-', ' ']:

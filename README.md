@@ -17,3 +17,7 @@ Put e.g. the follwing into you `.vimrc` or your `init.vim` after loading [SirVer
     UltiSnipsAddFiletypes markdown.writer
 ```
 
+# Snippets
+use `./file_na<tab>` or `file_nam<c-f>` to let pop up the selection list. To complete or expand sections of a file, use `[link](file_name#sec<c-o>)`
+
+`linkHyp` snippet: insert file name (for completion use `<c-f>`) and  use `#<c-o>` for section completion
