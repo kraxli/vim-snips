@@ -22,6 +22,12 @@ snippet link "insert link"
 [$2]($1)$0
 endsnippet
 
+# &li
+priority 1
+snippet $li "insert link" wA
+[$2]($1)$0
+endsnippet
+
 priority 1
 snippet img "insert link"
 ![$2]($1)$0
@@ -31,20 +37,6 @@ endsnippet
 ##########
 #  Code  #
 ##########
-snippet py "Insert Python Code Block"
-\`\`\`python
-${2}
-\`\`\`
-$0
-endsnippet
-
-snippet sh "Insert Bash Code Block"
-\`\`\`bash
-${2}
-\`\`\`
-$0
-endsnippet
-
 snippet sql "Insert SQL Code Block" 
 \`\`\`sql
 ${2}
