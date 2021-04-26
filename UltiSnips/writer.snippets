@@ -88,13 +88,6 @@ $$
 $0
 endsnippet
 
-snippet $b "Math display" wA
-$$
-	${1:${VISUAL}}
-$$
-$0
-endsnippet
-
 snippet $d "Math display" wA
 $$
 	${1:${VISUAL}}
@@ -109,7 +102,7 @@ snippet // "Fraction" iA
 \\frac{$1}{$2}$0
 endsnippet
 
-snippet frac "Fraction" wA
+snippet frac "Fraction" w
 \\frac{$1}{$2}$0
 endsnippet
 
@@ -207,11 +200,11 @@ snippet iff "iff" Ai
 endsnippet
 
 
-snippet == "equals" iA
+snippet == "equals" i
 &= $1 \\\\
 endsnippet
 
-snippet != "equals" iA
+snippet != "equals" i
 \neq
 endsnippet
 
@@ -251,10 +244,6 @@ snippet () "left( right)" iA
 \left( ${1:${VISUAL}} \right) $0
 endsnippet
 
-snippet lr( "left( right)" iA
-\left( ${1:${VISUAL}} \right) $0
-endsnippet
-
 snippet lr| "left| right|" iA
 \left| ${1:${VISUAL}} \right| $0
 endsnippet
@@ -286,7 +275,7 @@ snippet [] "left[ right]" iA
 \left[ ${1:${VISUAL}} \right] $0
 endsnippet
 
-snippet lra "leftangle rightangle" iA
+snippet lra "leftangle rightangle" i
 \left<${1:${VISUAL}} \right>$0
 endsnippet
 
@@ -304,7 +293,11 @@ snippet dint "integral" w
 \int_{${1:-\infty}}^{${2:\infty}} ${3:${VISUAL}} $0
 endsnippet
 
-snippet 'z "zeta" wA
+snippet 'z "zeta" w
+\zeta
+endsnippet
+
+snippet zeta "zeta" w
 \zeta
 endsnippet
 
@@ -361,7 +354,7 @@ snippet rd "to the ... power" iA
 ^{($1)}$0
 endsnippet
 
-snippet __ "subscript" iA
+snippet __ "subscript" i
 _{$1}$0
 endsnippet
 
@@ -373,11 +366,11 @@ snippet rij "mrij" i
 (${1:x}_${2:n})_{${3:$2}\\in${4:\\N}}$0
 endsnippet
 
-snippet <= "leq" iA
+snippet <= "leq" i
 \le
 endsnippet
 
-snippet >= "geq" iA
+snippet >= "geq" i
 \ge
 endsnippet
 
@@ -520,28 +513,28 @@ snippet \\\ "setminus" iA
 \setminus
 endsnippet
 
-snippet >> ">>" iA
+snippet >> ">>" i
 \gg
 endsnippet
 
-snippet << "<<" iA
+snippet << "<<" i
 \ll
 endsnippet
 
-snippet DD "delta" iA
+snippet DD "delta" i
 \Delta
 endsnippet
 
-snippet ~~ "~" iA
+snippet ~~ "~" i
 \sim
 endsnippet
 
 context "math()"
-snippet set "set" wA
+snippet set "set" w
 \\{$1\\} $0
 endsnippet
 
-snippet || "mid" iA
+snippet || "mid" i
  \mid
 endsnippet
 
@@ -596,11 +589,11 @@ snippet ZZ "Z" iA
 \Z
 endsnippet
 
-snippet <! "normal" iA
+snippet <! "normal" i
 \triangleleft
 endsnippet
 
-snippet <> "hokje" iA
+snippet <> "hokje" i
 \diamond
 endsnippet
 
@@ -622,7 +615,7 @@ snippet case "cases" wA
 \end{cases}
 endsnippet
 
-snippet SI "SI" iA
+snippet SI "SI" i
 \SI{$1}{$2}
 endsnippet
 
@@ -667,21 +660,21 @@ snippet "([a-zA-Z])hat" "hat" riA
 \hat{`!p snip.rv=match.group(1)`}
 endsnippet
 
-snippet letw "let omega" iA
+snippet letw "let omega" i
 Let $\Omega \subset \C$ be open.
 endsnippet
 
 
 # For quantum mechanics, I have snippets for bra/ket notation.
-snippet "\<(.*?)\|" "bra" riA
+snippet "\<(.*?)\|" "bra" ri
 \bra{`!p snip.rv = match.group(1).replace('q', f'\psi').replace('f', f'\phi')`}
 endsnippet
 
-snippet "\|(.*?)\>" "ket" riA
+snippet "\|(.*?)\>" "ket" ri
 \ket{`!p snip.rv = match.group(1).replace('q', f'\psi').replace('f', f'\phi')`}
 endsnippet
 
-snippet "(.*)\\bra{(.*?)}([^\|]*?)\>" "braket" riA
+snippet "(.*)\\bra{(.*?)}([^\|]*?)\>" "braket" ri
 `!p snip.rv = match.group(1)`\braket{`!p snip.rv = match.group(2)`}{`!p snip.rv = match.group(3).replace('q', f'\psi').replace('f', f'\phi')`}
 endsnippet
 
