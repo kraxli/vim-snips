@@ -9,9 +9,9 @@
 # In that folder, I have a file ~/current_project/UltiSnips/tex.snippets in which I include course/project specific snippets
 
 global !p
-import sys
-sys.path.append('../../pythonx')
-from snippet_helpers import *
+# import sys
+# sys.path.append('../../pythonx')
+# from snippet_helpers import *
 
 # ----- Context -----:
 # One thing to consider when writing these snippets is, ‘will these snip­pets col­lide with usual text?’
@@ -30,12 +30,15 @@ texIgnoreMathZoneIds = vim.eval('map('+str(texIgnoreMathZones)+", 'hlID(v:val)')
 ignore = texIgnoreMathZoneIds[0]
 
 def math():
-	synstackids = vim.eval("synstack(line('.'), col('.') - (col('.')>=2 ? 1 : 0))")
-	try:
-		first = next(i for i in reversed(synstackids) if i in texIgnoreMathZoneIds or i in texMathZoneIds)
-		return first != ignore
-	except StopIteration:
-		return False
+    return vim.eval("vimtex#syntax#in_mathzone()") != "0"
+
+# def math():
+# 	synstackids = vim.eval("synstack(line('.'), col('.') - (col('.')>=2 ? 1 : 0))")
+# 	try:
+# 		first = next(i for i in reversed(synstackids) if i in texIgnoreMathZoneIds or i in texMathZoneIds)
+# 		return first != ignore
+# 	except StopIteration:
+# 		return False
 # ----- end context -----
 endglobal
 
